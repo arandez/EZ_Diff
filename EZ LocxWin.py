@@ -6,11 +6,10 @@ from pandas import ExcelWriter
 from pandas import ExcelFile
 
 #reads in intitial data from excel file
-#includes all sheets or "TABS"
+#includes all sheets
 df = pd.read_excel('C:/Users/alyss/Desktop/Spring 2020/Honors Thesis/Ez/EZall.xlsx', sheet_name=None)
 
 #rows and colums count to set initial array size
-#make new variables for the other 2 data set groups
 rows, cols = (34, 34)
 
 # create new arrays for other data sets using new row and column count
@@ -48,12 +47,6 @@ def ezdiff(subject_id,MRT,VRT,p, Variable):
     elif Variable == 2:
         return Ter
     #return([v,a,Ter])
-#IGNORE
-#print(df['W-MRT'].iloc[20,10]/1000)
-#print(df['W-VRT'].iloc[20,10])
-#print(df['W-Pc'].iloc[20,10])
-#print(ezdiff("0000", df['W-MRT'].iloc[20,10]/1000, df['W-VRT'].iloc[20,10]/1000000, df['W-Pc'].iloc[20,10]))
-
 #loop to itterate through each row
 #duplicate for other two data groups
 for i in range(0,34):
@@ -79,7 +72,7 @@ for i in range(0,34):
         arr[i][j] = ezdiff("0000", df['MRT'].iloc[i,j]/1000, df['VRT'].iloc[i,j]/1000000, df['PC'].iloc[i,j], 0)
         arr1[i][j] = ezdiff("0000", df['MRT'].iloc[i,j]/1000, df['VRT'].iloc[i,j]/1000000, df['PC'].iloc[i,j], 1)
         arr2[i][j] = ezdiff("0000", df['MRT'].iloc[i,j]/1000, df['VRT'].iloc[i,j]/1000000, df['PC'].iloc[i,j], 2)
-#displays data in easy to read format in consol for data verification
+
 #for row in arr:
 #    print(row)
 #assigns data array to dataframe for later transfer to excel sheet
